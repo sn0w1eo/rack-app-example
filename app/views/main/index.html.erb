@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/application.css">
+</head>
+<body>
+<h2> Hello <%= @name || 'Man!' %></h2>
+<h5>ENTER NAME:</h5>
+<form action="/" method="get">
+	<input type="text" name="name">
+	<input type="submit" name="">
+</form>
+<hr>
+<h4>PARAMETERS</h4>
+<form action="/" method="post">
+	<input type="text" name="text">
+	<input type="submit" name="">
+</form>
+<pre>METHOD: <%= @method %></pre>
+<pre><%= @params %></pre>
+<hr>
+<h4>COOKIES:</h4>
+<% @cookies.each_key do |key| %>
+<pre><%= "'#{key}' => '#{@cookies[key]}'" %></pre>
+<% end %>
+
+
+<form action="/cookie" method="post">
+	<input type="text" name="key">
+	<input type="text" name="value">
+	<input type="submit" name="">
+</form>
+
+
+<a href="/clear">CLEAR COOKIES</a>
+</body>
+</html>
